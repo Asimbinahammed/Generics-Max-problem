@@ -3,19 +3,19 @@ package bridgelabz;
 import java.util.Scanner;
 
 public class Generics {
-	static Integer max;
+	static Float max;
 
 	public static void main(String args[]) {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter 1st num:");
-		Integer x = sc.nextInt();
+		Float x = sc.nextFloat();
 
 		System.out.print("Enter 2nd num:");
-		Integer y = sc.nextInt();
+		Float y = sc.nextFloat();
 
 		System.out.print("Enter 3rd num:");
-		Integer z = sc.nextInt();
+		Float z = sc.nextFloat();
 
 		if (x.compareTo(y) > 0) {
 			max = x;
