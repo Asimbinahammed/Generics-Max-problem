@@ -14,13 +14,19 @@ public class Generics<T extends Comparable> {
 	@SuppressWarnings("unchecked")
 	void testMaximum() {
 		T max = inputArray[0];
-		for(T element:inputArray ) {
-			if(element.compareTo(max)>0) {
+		for(T element:inputArray ) { //looping around array
+			if(element.compareTo(max)>0) { //checking each element
 				max=element;
 			}
 		}
-		System.out.println("Maximum is : " + max);
+		//System.out.println("Maximum is : " + max);
+		printMax(max);
 
+	}
+	
+	//method to print maximum of arrays
+	public static <T> void printMax(T max) {
+		System.out.println("Maximum is : " + max);
 	}
 
 	@SuppressWarnings({ "unchecked", "unused" })
@@ -36,8 +42,8 @@ public class Generics<T extends Comparable> {
 		Generics flt = new Generics(floatArray);
 		Generics str = new Generics(stringArray);
 
-		//inte.testMaximum();
-		//flt.testMaximum();
+		inte.testMaximum();
+		flt.testMaximum();
 		str.testMaximum();
 
 	}
