@@ -1,46 +1,44 @@
 package bridgelabz;
 
+@SuppressWarnings("rawtypes")
 public class Generics<T extends Comparable> {
-	//declaring instance variable
-	T x;
-	T y;
-	T z;
+	// declaring instance array
+	private T[] inputArray;
 	
-	//constructor
-	Generics(T x,T y,T z){
-		this.x=x;
-		this.y=y;
-		this.z=z;
-		
-	}
-	
-	
-	
-	//checking maximum
-	void testMaximum() {
-		T max =x;
-		if(y.compareTo(max)>0) {
-			max=y;
-		}
-		if(z.compareTo(max)>0) {
-			max=z;
-		}
-		System.out.println("Maximum is : " +max);
-		
-		
+	// constructor
+	Generics(T[] inputArray ) {
+		this.inputArray=inputArray;
 	}
 
+	// checking maximum
+	@SuppressWarnings("unchecked")
+	void testMaximum() {
+		T max = inputArray[0];
+		for(T element:inputArray ) {
+			if(element.compareTo(max)>0) {
+				max=element;
+			}
+		}
+		System.out.println("Maximum is : " + max);
+
+	}
+
+	@SuppressWarnings({ "unchecked", "unused" })
 	public static void main(String[] args) {
-		Generics inte=new Generics(123,23455,234);
-		Generics flt=new Generics(12.3 , 9.2 , 3.556655);
-		Generics str=new Generics("Apple","Oranges","Grapes");
 		
-		inte.testMaximum();
-		flt.testMaximum();
+		//declaring various arrays with various size
+		Integer[] intArray= {1,2,345,678,3456};
+		Double[] floatArray= {568.34 , 23.3 , 99.002 , 34.2};
+		String[] stringArray= {"banana","Apple","peach"};
+		
+		@SuppressWarnings("unused")
+		Generics inte = new Generics(intArray);
+		Generics flt = new Generics(floatArray);
+		Generics str = new Generics(stringArray);
+
+		//inte.testMaximum();
+		//flt.testMaximum();
 		str.testMaximum();
-		
-		
-		
+
 	}
 }
-
