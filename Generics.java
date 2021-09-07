@@ -1,31 +1,46 @@
 package bridgelabz;
 
-import java.util.Scanner;
-
-public class Generics {
-	static String max;
-
-	public static void main(String args[]) {
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter string ");
-		String x = sc.nextLine();
-
-		System.out.print("Enter string ");
-		String y = sc.nextLine();
-
-		System.out.print("Enter string ");
-		String z = sc.nextLine();
-
-		if (x.compareTo(y) > 0) {
-			max = x;
-		} else {
-			max = y;
+public class Generics<T extends Comparable> {
+	//declaring instance variable
+	T x;
+	T y;
+	T z;
+	
+	//constructor
+	Generics(T x,T y,T z){
+		this.x=x;
+		this.y=y;
+		this.z=z;
+		
+	}
+	
+	
+	
+	//checking maximum
+	void testMaximum() {
+		T max =x;
+		if(y.compareTo(max)>0) {
+			max=y;
 		}
-		if (z.compareTo(max) > 0) {
-			max = z;
+		if(z.compareTo(max)>0) {
+			max=z;
 		}
-		System.out.println("Max string is : " + max);
+		System.out.println("Maximum is : " +max);
+		
+		
+	}
 
+	public static void main(String[] args) {
+		Generics inte=new Generics(123,23455,234);
+		Generics flt=new Generics(12.3 , 9.2 , 3.556655);
+		Generics str=new Generics("Apple","Oranges","Grapes");
+		
+		inte.testMaximum();
+		flt.testMaximum();
+		str.testMaximum();
+		
+		
+		
 	}
 }
+
